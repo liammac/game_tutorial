@@ -1,5 +1,6 @@
 package data;
 
+import helpers.Clock;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.opengl.Texture;
@@ -35,12 +36,16 @@ public class Boot {
 
         TileGrid grid = new TileGrid(map);
         grid.setTile(3,5, grid.GetTile(2,5).getType());
-        Enemy e = new Enemy(QuickLoad("enemy1"), grid.GetTile(10,10), 64, 64, 2);
+        Enemy e = new Enemy(QuickLoad("enemy1"), grid.GetTile(10,10), 64, 64, 6);
+        Wave wave = new Wave(20, e);
         while(!Display.isCloseRequested()) {
-            GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
+
+            Clock.update();
+
+            // GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 
             grid.Draw();
-            e.Draw();
+            wave.Update();
             Display.update();
             Display.sync(60);
         }
