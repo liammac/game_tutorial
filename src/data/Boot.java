@@ -38,6 +38,7 @@ public class Boot {
         grid.setTile(3,5, grid.GetTile(2,5).getType());
         Enemy e = new Enemy(QuickLoad("enemy1"), grid.GetTile(10,10), 64, 64, 6);
         Wave wave = new Wave(20, e);
+        Player player = new Player(grid);
         while(!Display.isCloseRequested()) {
 
             Clock.update();
@@ -46,6 +47,7 @@ public class Boot {
 
             grid.Draw();
             wave.Update();
+            player.Update();
             Display.update();
             Display.sync(60);
         }
