@@ -5,7 +5,7 @@ package data;
  */
 public enum TileType {
 
-    Grass("grass", true), Dirt("dirt", false), Water("water", false);
+    Grass("grass", true), Dirt("dirt", false), Water("water", false), NULL("water", false);
 
     String textureName;
     boolean buildable;

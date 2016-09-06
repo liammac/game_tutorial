@@ -75,4 +75,11 @@ public class Tile {
     public void setType(TileType type) {
         this.type = type;
     }
+    public int getXPlace() {
+        return (int) x/64;
+    }
+
+    public int getYPlace() {
+        return (int) y/64;
+    }
 }
