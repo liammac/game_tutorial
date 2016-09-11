@@ -38,6 +38,8 @@ public class Boot {
         Enemy e = new Enemy(QuickLoad("enemy1"), grid.GetTile(14,8), grid, 64, 64, 6);
         Wave wave = new Wave(20, e);
         Player player = new Player(grid);
+
+        TowerCannon tower = new TowerCannon(QuickLoad("cannonBase"), grid.GetTile(14, 7), 10);
         while(!Display.isCloseRequested()) {
 
             Clock.update();
@@ -47,6 +49,7 @@ public class Boot {
             grid.Draw();
             wave.Update();
             player.Update();
+            tower.Draw();
             Display.update();
             Display.sync(60);
         }
