@@ -34,22 +34,14 @@ public class Boot {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1},
         };
 
-        TileGrid grid = new TileGrid(map);
-        Enemy e = new Enemy(QuickLoad("enemy1"), grid.GetTile(14,8), grid, 64, 64, 6);
-        Wave wave = new Wave(20, e);
-        Player player = new Player(grid);
-
-        TowerCannon tower = new TowerCannon(QuickLoad("cannonBase"), grid.GetTile(14, 7), 10);
+        Game game = new Game(map);
         while(!Display.isCloseRequested()) {
 
             Clock.update();
 
             // GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 
-            grid.Draw();
-            wave.Update();
-            player.Update();
-            tower.update();
+            game.update();
             Display.update();
             Display.sync(60);
         }

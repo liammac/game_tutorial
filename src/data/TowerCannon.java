@@ -28,7 +28,7 @@ public class TowerCannon {
         this.width = (int) startTile.getWidth();
         this.height = (int) startTile.getHeight();
         this.damage = damage;
-        this.firingSpeed = 10;
+        this.firingSpeed = 2;
         this.timeSinceLastShot = 0;
         this.projectiles = new ArrayList<Projectile>();
 
@@ -36,7 +36,7 @@ public class TowerCannon {
 
     private void shoot() {
         timeSinceLastShot = 0;
-        projectiles.add(new Projectile(QuickLoad("projectile"), x + 32, y + 32, 5, 10));
+        projectiles.add(new Projectile(QuickLoad("projectile"), x + 32, y + 32, 80, 10));
 
     }
 
@@ -52,7 +52,7 @@ public class TowerCannon {
 
     public void Draw() {
         DrawQuadTex(baseTexture, x, y, width, height);
-        DrawQuadTex(cannonTexture, x, y, width, height);
+        DrawQuadTexRot(cannonTexture, x, y, width, height, 45);
     }
 
 }
