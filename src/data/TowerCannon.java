@@ -51,7 +51,7 @@ public class TowerCannon {
 
     private void shoot() {
         timeSinceLastShot = 0;
-        projectiles.add(new Projectile(QuickLoad("projectile"), x + 32, y + 32, 80, 10));
+        projectiles.add(new Projectile(QuickLoad("projectile"), target, x + 32, y + 32, 900, 10));
 
     }
 
